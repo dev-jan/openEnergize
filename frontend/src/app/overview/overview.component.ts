@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProducerService } from '../producer.service';
+import { Producer } from '../models/Producer';
 
 @Component({
   selector: 'app-overview',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private producerService:ProducerService) { }
+
+  producers: Producer[] = [];
 
   ngOnInit(): void {
+    this.producerService.getAllProducers()
+        .subscribe(producers => this.producers = producers);
   }
 
 }

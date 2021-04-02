@@ -1,0 +1,9 @@
+<div *ngIf="producer" class="producer--card">
+  <mat-card>
+    <img mat-card-image src="https://picsum.photos/id/1026/500/200" alt="{{ producer.type }}" />
+    <mat-card-content>
+      <mat-card-subtitle>{{ producer.name }}</mat-card-subtitle>
+      <mat-card-title>{{ producer.currentProductionInWatt }} W</mat-card-title>
+    </mat-card-content>
+  </mat-card>
+</div>
