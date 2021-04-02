@@ -4,6 +4,7 @@ from .endpoints import api
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
+app.config["SWAGGER_UI_DOC_EXPANSION"] = 'list'
 api.init_app(app)
 
 @app.after_request
