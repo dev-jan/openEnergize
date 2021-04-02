@@ -1,5 +1,5 @@
-from flask_restx import Api
-from .producers import ns as producer_namespace
+from flask_restx import Api, Resource, fields
+from .producers import api as producer_api
 
 api = Api(
     title="HSLU Energymanagement API",
@@ -8,4 +8,4 @@ api = Api(
     # All API metadatas
 )
 
-api.add_namespace(producer_namespace)
+api.add_namespace(producer_api)
