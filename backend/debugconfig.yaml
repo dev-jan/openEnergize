@@ -1,0 +1,11 @@
+producers:
+    - id: 0
+      name: 'Solarpanel 1'
+      type: 'constant'
+      config:
+        value: '236.2'
+    - id: 1
+      name: 'Solarpanel 2'
+      type: 'constant'
+      config:
+        value: '0.3'
