@@ -7,11 +7,18 @@
     </mat-card-title>
 
     <h1>Producers</h1>
-    <mat-grid-list cols="3" rowHeight="200px">
-      <mat-grid-tile>
-        <div *ngFor='let producer of producers'>
+    <mat-grid-list cols="5" rowHeight="200px">
+      <div *ngFor='let producer of producers'>
+        <mat-grid-tile>
           <app-producer-detail [producer]="producer"></app-producer-detail>
-        </div>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+
+    <h1>Consumers</h1>
+    <mat-grid-list cols="5" rowHeight="200px">
+      <mat-grid-tile *ngFor='let consumer of consumers'>
+        <app-consumer-detail [consumer]="consumer"></app-consumer-detail>
       </mat-grid-tile>
     </mat-grid-list>
 

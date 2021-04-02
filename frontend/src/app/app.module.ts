@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { ProducerDetailComponent } from './producer-detail/producer-detail.component';
+import { ConsumerDetailComponent } from './consumer-detail/consumer-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OverviewComponent,
     HeaderComponent,
-    ProducerDetailComponent
+    ProducerDetailComponent,
+    ConsumerDetailComponent
   ],
   imports: [
     BrowserModule,

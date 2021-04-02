@@ -9,3 +9,20 @@ producers:
       type: 'constant'
       config:
         value: '0.3'
+
+consumers:
+    - id: 0
+      name: 'Waschmachine'
+      type: 'constant'
+      config:
+        value: '111'
+    - id: 1
+      name: 'Tesla Ladestation'
+      type: 'constant'
+      config:
+        value: '5433.16'
+    - id: 2
+      name: 'Aussenlicht'
+      type: 'constant'
+      config:
+        value: '0.0'
