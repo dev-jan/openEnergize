@@ -1,0 +1,18 @@
+<mat-nav-list>
+  <h2 matSubheader>Navigation</h2>
+
+  <a mat-list-item routerLink="/overview" (click)="onSidenavClose()">
+    <mat-icon>home</mat-icon> <span class="nav-caption">Overview</span>
+  </a>
+
+  <a mat-list-item routerLink="/eventlist" (click)="onSidenavClose()">
+    <mat-icon>description</mat-icon> <span class="nav-caption">Events</span>
+  </a>
+
+  <mat-divider></mat-divider>
+
+  <a mat-list-item routerLink="/about" (click)="onSidenavClose()">
+    <span class="nav-caption">About</span>
+  </a>
+
+</mat-nav-list>

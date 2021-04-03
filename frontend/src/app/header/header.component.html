@@ -1,4 +1,9 @@
 <mat-toolbar color="primary">
-  <mat-icon>home</mat-icon>
-  <span class="app-title">HSLU Energiemanagement</span>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-icon>home</mat-icon>
+    <span class="app-title">HSLU Energiemanagement</span>
+  </mat-toolbar-row>
 </mat-toolbar>

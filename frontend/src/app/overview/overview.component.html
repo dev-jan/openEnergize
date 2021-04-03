@@ -1,26 +1,20 @@
-<app-header></app-header>
+<div class="container md-padding">
+  <h1 class="mat-display-1">Overview</h1>
 
-<div fxLayout="row" fxLayoutAlign="center center" class="container">
-  <mat-card class="card">
-    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-      <h1>Overview</h1>
-    </mat-card-title>
-
-    <h1>Producers</h1>
-    <mat-grid-list cols="5">
-      <div *ngFor='let producer of producers'>
-        <mat-grid-tile>
-          <app-producer-detail [producer]="producer"></app-producer-detail>
-        </mat-grid-tile>
-      </div>
-    </mat-grid-list>
-
-    <h1>Consumers</h1>
-    <mat-grid-list cols="5">
-      <mat-grid-tile *ngFor='let consumer of consumers'>
-        <app-consumer-detail [consumer]="consumer"></app-consumer-detail>
+  <h2>Producers</h2>
+  <mat-grid-list cols="5">
+    <div *ngFor='let producer of producers'>
+      <mat-grid-tile>
+        <app-producer-detail [producer]="producer"></app-producer-detail>
       </mat-grid-tile>
-    </mat-grid-list>
+    </div>
+  </mat-grid-list>
 
-  </mat-card>
+  <h2>Consumers</h2>
+  <mat-grid-list cols="5">
+    <mat-grid-tile *ngFor='let consumer of consumers'>
+      <app-consumer-detail [consumer]="consumer"></app-consumer-detail>
+    </mat-grid-tile>
+  </mat-grid-list>
+
 </div>

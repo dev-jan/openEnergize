@@ -7,6 +7,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +17,9 @@ import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { ProducerDetailComponent } from './producer-detail/producer-detail.component';
 import { ConsumerDetailComponent } from './consumer-detail/consumer-detail.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { EventlistComponent } from './eventlist/eventlist.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +27,10 @@ import { ConsumerDetailComponent } from './consumer-detail/consumer-detail.compo
     OverviewComponent,
     HeaderComponent,
     ProducerDetailComponent,
-    ConsumerDetailComponent
+    ConsumerDetailComponent,
+    NavigationComponent,
+    EventlistComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,10 @@ import { ConsumerDetailComponent } from './consumer-detail/consumer-detail.compo
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
