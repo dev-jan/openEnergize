@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  frontend:
+    container_name: energymanagement_frontend
+    build: ./frontend
+    ports:
+      - '8001:80'
+
+  backend:
+    container_name: energymanagement_backend
+    build: ./backend
+    ports:
+      - '5000:5000'
