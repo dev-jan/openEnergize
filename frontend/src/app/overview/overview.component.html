@@ -7,7 +7,7 @@
     </mat-card-title>
 
     <h1>Producers</h1>
-    <mat-grid-list cols="5" rowHeight="200px">
+    <mat-grid-list cols="5">
       <div *ngFor='let producer of producers'>
         <mat-grid-tile>
           <app-producer-detail [producer]="producer"></app-producer-detail>
@@ -16,7 +16,7 @@
     </mat-grid-list>
 
     <h1>Consumers</h1>
-    <mat-grid-list cols="5" rowHeight="200px">
+    <mat-grid-list cols="5">
       <mat-grid-tile *ngFor='let consumer of consumers'>
         <app-consumer-detail [consumer]="consumer"></app-consumer-detail>
       </mat-grid-tile>
