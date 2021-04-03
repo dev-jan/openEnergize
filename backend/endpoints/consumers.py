@@ -5,7 +5,13 @@ api = Namespace('consumers', description='Energy consumers')
 
 consumer = api.model('Consumer', {
     'id': fields.Integer(required=True, description='ID of the producer'),
-    'name': fields.String(required=True, description='Name of the producer')
+    'name': fields.String(required=True, description='Name of the producer'),
+    'type': fields.String(required=True,
+        description='Type of the consumer',
+        attribute=lambda x: x['adapter'].get_type()),
+    'currentConsumptionInWatt': fields.Float(required=False,
+        description='Current power measurement in Watt',
+        attribute=lambda x: x['adapter'].get_current_energy_consumption())
 })
 
 CONFIG = get_configuration()

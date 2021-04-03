@@ -1,5 +1,5 @@
 from .ConstantValueProducerAdapter import ConstantValueProducerAdapter
 
-TYPE_MAPPING = {
+PRODUCER_TYPE_MAPPING = {
     'constant': ConstantValueProducerAdapter
 }
