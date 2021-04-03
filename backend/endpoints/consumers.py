@@ -1,5 +1,5 @@
 from flask_restx import Namespace, Api, Resource, fields
-from backend.Configuration import get_configuration
+from ..Configuration import get_configuration
 
 api = Namespace('consumers', description='Energy consumers')
 

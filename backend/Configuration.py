@@ -1,5 +1,5 @@
 import yaml
-from backend.producer_adapters import TYPE_MAPPING
+from .producer_adapters import TYPE_MAPPING
 
 def get_configuration() -> dict:
     print("CONFIG-CALLED")

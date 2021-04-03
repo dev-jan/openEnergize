@@ -1,4 +1,4 @@
-from backend.producer_adapters.AbstractProducerAdapter import AbstractProducerAdapter
+from .AbstractProducerAdapter import AbstractProducerAdapter
 
 class ConstantValueProducerAdapter(AbstractProducerAdapter):
     """

@@ -1,7 +1,7 @@
 from flask_restx import Namespace, Api, Resource, fields
-from backend.producer_adapters.AbstractProducerAdapter import AbstractProducerAdapter
-from backend.producer_adapters.ConstantValueProducerAdapter import ConstantValueProducerAdapter
-from backend.Configuration import get_configuration
+from ..producer_adapters.AbstractProducerAdapter import AbstractProducerAdapter
+from ..producer_adapters.ConstantValueProducerAdapter import ConstantValueProducerAdapter
+from ..Configuration import get_configuration
 
 api = Namespace('producers', description='Energy producers')
 
