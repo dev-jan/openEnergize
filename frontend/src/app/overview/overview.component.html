@@ -1,6 +1,13 @@
 <div class="container md-padding">
   <h1 class="mat-display-1">Overview</h1>
 
+  <h2>Total</h2>
+  <mat-card *ngIf="totals" class="totals--card">
+    <mat-card-content>
+      <mat-card-title>{{ totals.energySum }} W</mat-card-title>
+    </mat-card-content>
+  </mat-card>
+
   <h2>Producers</h2>
   <mat-grid-list cols="5">
     <div *ngFor='let producer of producers'>
