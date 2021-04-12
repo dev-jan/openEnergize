@@ -8,7 +8,7 @@ event = api.model('Event', {
 
 @api.route('/')
 class EventList(Resource):
-    @api.doc('list_consumers')
+    @api.doc('list_events')
     @api.marshal_list_with(event)
     def get(self):
         events = []
