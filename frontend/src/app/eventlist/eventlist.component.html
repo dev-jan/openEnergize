@@ -1,3 +1,17 @@
 <div class="container md-padding">
   <h1 class="mat-display-1">Event list</h1>
+
+  <div class="buttons">
+    <button mat-raised-button (click)="reloadEvents()"><mat-icon>autorenew</mat-icon> Reload</button>
+  </div>
+
+  <table mat-table [dataSource]="events" class="mat-elevation-z6">
+    <ng-container matColumnDef="text">
+      <th mat-header-cell *matHeaderCellDef>Text</th>
+      <td mat-cell *matCellDef="let element">{{ element.text }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="eventColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: eventColumns;"></tr>
+  </table>
 </div>
