@@ -3,7 +3,7 @@
     <img mat-card-image src="https://picsum.photos/id/0/500/200" alt="{{ consumer.type }}" />
     <mat-card-content>
       <mat-card-subtitle>{{ consumer.name }}</mat-card-subtitle>
-      <mat-card-title>{{ consumer.currentConsumptionInWatt }} W</mat-card-title>
+      <mat-card-title>{{ consumer.currentConsumptionInWatt | number : '1.0-2' }} W</mat-card-title>
     </mat-card-content>
   </mat-card>
 </div>

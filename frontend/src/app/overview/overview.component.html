@@ -4,7 +4,7 @@
   <h2>Total</h2>
   <mat-card *ngIf="totals" class="totals--card">
     <mat-card-content>
-      <mat-card-title>{{ totals.energySum }} W</mat-card-title>
+      <mat-card-title>{{ totals.energySum | number : '1.0-2' }} W</mat-card-title>
     </mat-card-content>
   </mat-card>
 

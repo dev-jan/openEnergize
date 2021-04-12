@@ -3,7 +3,7 @@
     <img mat-card-image src="https://picsum.photos/id/159/500/200" alt="{{ storage.type }}" />
     <mat-card-content>
       <mat-card-subtitle>{{ storage.name }}</mat-card-subtitle>
-      <mat-card-title>{{ storage.currentStorageCapacityInPercent }}%</mat-card-title>
+      <mat-card-title>{{ storage.currentStorageCapacityInPercent | number : '1.0-2' }}%</mat-card-title>
     </mat-card-content>
   </mat-card>
 </div>
