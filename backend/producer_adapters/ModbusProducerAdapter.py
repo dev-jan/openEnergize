@@ -1,12 +1,12 @@
-from .AbstractConsumerAdapter import AbstractConsumerAdapter
+from .AbstractProducerAdapter import AbstractProducerAdapter
 from pymodbus.client.sync import ModbusTcpClient
 from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 
-class ModbusConsumerAdapter(AbstractConsumerAdapter):
+class ModbusProducerAdapter(AbstractProducerAdapter):
     """
-    Implementation of a consumer that returns the value that is fetched via
+    Implementation of a producer that returns the value that is fetched via
     a the MODBUS protocol.
 
     configuration:
@@ -22,7 +22,7 @@ class ModbusConsumerAdapter(AbstractConsumerAdapter):
         self.client = ModbusTcpClient(config['gatewayIP'], port=config['gatewayPort'])
         self.client.connect()
 
-    def get_current_energy_consumption(self) -> float:
+    def get_current_energy_production(self) -> float:
         address = self.config['address']
         unit = self.config['unit']
         factor = self.config.get('factor', 1)
