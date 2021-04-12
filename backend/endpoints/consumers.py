@@ -11,7 +11,15 @@ consumer = api.model('Consumer', {
         attribute=lambda x: x['adapter'].get_type()),
     'currentConsumptionInWatt': fields.Float(required=False,
         description='Current power measurement in Watt',
-        attribute=lambda x: x['adapter'].get_current_energy_consumption())
+        attribute=lambda x: x['adapter'].get_current_energy_consumption()),
+    'isControllable': fields.Boolean(
+        required=True,
+        description='True if the device is controllable by the energy management',
+        attribute=lambda x: x['adapter'].is_controllable()),
+    'status': fields.String(
+        required=True,
+        description='Status of the device',
+        attribute=lambda x: x['adapter'].get_status())
 })
 
 CONFIG = get_configuration()

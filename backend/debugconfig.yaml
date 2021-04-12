@@ -1,9 +1,11 @@
+check_every: 3
+activation_threshold: 200
 producers:
     - id: 0
       name: 'Solarpanel 1'
       type: 'constant'
       config:
-        value: '236.2'
+        value: '2360.2'
     - id: 1
       name: 'Solarpanel 2'
       type: 'constant'
@@ -12,15 +14,16 @@ producers:
 
 consumers:
     - id: 0
-      name: 'Waschmachine'
-      type: 'constant'
+      name: 'Fake 1'
+      type: 'fakeControllable'
       config:
         value: '111'
+        status: 'READY'
     - id: 1
       name: 'Tesla Ladestation'
       type: 'constant'
       config:
-        value: '5433.16'
+        value: '1433.16'
     - id: 2
       name: 'Aussenlicht'
       type: 'constant'
