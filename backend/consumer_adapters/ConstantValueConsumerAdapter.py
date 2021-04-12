@@ -2,7 +2,7 @@ from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
 class ConstantValueConsumerAdapter(AbstractConsumerAdapter):
     """
-    Implementation of the conumer that returns the same value every time. The
+    Implementation of a consumer that returns the same value every time. The
     value is provided as config "value".
     """
 
@@ -10,4 +10,4 @@ class ConstantValueConsumerAdapter(AbstractConsumerAdapter):
         return self.config['value']
 
     def get_type(self) -> str:
-        return "constant"
+        return 'constant'

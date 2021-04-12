@@ -3,8 +3,9 @@ from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
 class FakeControllableConsumerAdapter(AbstractConsumerAdapter):
     """
-    Implementation of the conumer that returns the same value every time. The
-    value is provided as config "value".
+    Implementation of a consumer that returns the same value every time. The
+    value is provided as config "value". This adapter also allows to fake an
+    action, as it is controllable (but does nothing on activation).
     """
 
     def __init__(self, config):
@@ -15,7 +16,7 @@ class FakeControllableConsumerAdapter(AbstractConsumerAdapter):
         return self.config['value']
 
     def get_type(self) -> str:
-        return "fakeControllable"
+        return 'fakeControllable'
 
     def is_controllable(self) -> bool:
         return True
