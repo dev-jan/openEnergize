@@ -17,4 +17,5 @@ class EventList(Resource):
             for line in lines:
                 line = line.rstrip('\n')
                 events.append({'text': line})
+        events.reverse()
         return events
