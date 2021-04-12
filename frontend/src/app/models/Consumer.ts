@@ -3,4 +3,6 @@ export interface Consumer {
   name: string;
   type: string;
   currentConsumptionInWatt: number;
+  isControllable: boolean;
+  status: string;
 }

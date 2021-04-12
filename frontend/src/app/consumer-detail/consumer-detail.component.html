@@ -2,7 +2,10 @@
   <mat-card>
     <img mat-card-image src="https://picsum.photos/id/0/500/200" alt="{{ consumer.type }}" />
     <mat-card-content>
-      <mat-card-subtitle>{{ consumer.name }}</mat-card-subtitle>
+      <mat-card-subtitle>
+        <span>{{ consumer.name }}</span>
+        <span *ngIf="consumer.status != 'UNKNOWN'"> ({{ consumer.status }})</span>
+      </mat-card-subtitle>
       <mat-card-title>{{ consumer.currentConsumptionInWatt | number : '1.0-2' }} W</mat-card-title>
     </mat-card-content>
   </mat-card>
