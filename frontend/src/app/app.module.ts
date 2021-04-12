@@ -21,6 +21,7 @@ import { ConsumerDetailComponent } from './consumer-detail/consumer-detail.compo
 import { NavigationComponent } from './navigation/navigation.component';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { AboutComponent } from './about/about.component';
+import { StorageDetailComponent } from './storage-detail/storage-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AboutComponent } from './about/about.component';
     ConsumerDetailComponent,
     NavigationComponent,
     EventlistComponent,
-    AboutComponent
+    AboutComponent,
+    StorageDetailComponent
   ],
   imports: [
     BrowserModule,

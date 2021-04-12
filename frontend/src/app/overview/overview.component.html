@@ -8,11 +8,16 @@
     </mat-card-content>
   </mat-card>
 
-  <h2>Producers</h2>
+  <h2>Producers and Storages</h2>
   <mat-grid-list cols="5">
     <div *ngFor='let producer of producers'>
       <mat-grid-tile>
         <app-producer-detail [producer]="producer"></app-producer-detail>
+      </mat-grid-tile>
+    </div>
+    <div *ngFor='let storage of storages'>
+      <mat-grid-tile>
+        <app-storage-detail [storage]="storage"></app-storage-detail>
       </mat-grid-tile>
     </div>
   </mat-grid-list>

@@ -1,4 +1,4 @@
-check_every: 3
+check_every: 60
 activation_threshold: 200
 producers:
     - id: 0
@@ -29,3 +29,10 @@ consumers:
       type: 'constant'
       config:
         value: '0.0'
+
+storages:
+    - id: 0
+      name: "My fake battery"
+      type: 'constant'
+      config:
+        value: '98'
