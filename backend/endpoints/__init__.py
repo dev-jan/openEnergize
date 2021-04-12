@@ -2,6 +2,7 @@ from flask_restx import Api, Resource, fields
 from .producers import api as producer_api
 from .consumers import api as consumer_api
 from .totals import api as totals_api
+from .events import api as events_api
 
 api = Api(
     title="HSLU Energymanagement API",
@@ -13,3 +14,4 @@ api = Api(
 api.add_namespace(producer_api)
 api.add_namespace(consumer_api)
 api.add_namespace(totals_api)
+api.add_namespace(events_api)
