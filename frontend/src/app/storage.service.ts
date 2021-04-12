@@ -17,5 +17,5 @@ export class StorageService {
     return this.http.get<Storage[]>(environment.apiUrl + this.storageUrl);
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 }

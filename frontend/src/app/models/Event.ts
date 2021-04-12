@@ -1,3 +1,3 @@
 export interface Event {
-  text: String;
+  text: string;
 }

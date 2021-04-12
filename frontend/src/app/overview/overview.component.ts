@@ -15,10 +15,10 @@ import { Totals } from '../models/Totals';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(private producerService:ProducerService,
-              private consumerService:ConsumerService,
-              private storageService:StorageService,
-              private totalsService:TotalsService) { }
+  constructor(private producerService: ProducerService,
+              private consumerService: ConsumerService,
+              private storageService: StorageService,
+              private totalsService: TotalsService) { }
 
   producers: Producer[] = [];
   consumers: Consumer[] = [];

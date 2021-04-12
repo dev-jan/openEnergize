@@ -15,5 +15,5 @@ export class TotalsService {
     return this.http.get<Totals>(environment.apiUrl + this.totalsUrl);
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 }

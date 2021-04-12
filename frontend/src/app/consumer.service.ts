@@ -15,5 +15,5 @@ export class ConsumerService {
     return this.http.get<Consumer[]>(environment.apiUrl + this.consumerUrl);
   }
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 }

@@ -1,6 +1,6 @@
 export interface Storage {
   id: number;
-  name: String;
-  type: String;
+  name: string;
+  type: string;
   currentStorageCapacityInPercent: number;
 }
