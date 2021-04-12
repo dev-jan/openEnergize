@@ -1,8 +1,13 @@
+import logging
 from flask import Flask
 from flask_restx import Api, Resource, fields
 from .endpoints import api
 from .ConsumerTrigger import start_checking
 from .Configuration import get_configuration
+
+logging.basicConfig(filename='app.log', level=logging.DEBUG)
+logging.getLogger().addHandler(logging.StreamHandler())
+logging.info("startup backend app")
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
