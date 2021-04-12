@@ -1,6 +1,7 @@
 import logging
 from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
+
 class FakeControllableConsumerAdapter(AbstractConsumerAdapter):
     """
     Implementation of a consumer that returns the same value every time. The

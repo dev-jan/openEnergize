@@ -1,5 +1,6 @@
 from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
+
 class ConstantValueConsumerAdapter(AbstractConsumerAdapter):
     """
     Implementation of a consumer that returns the same value every time. The

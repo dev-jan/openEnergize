@@ -1,4 +1,4 @@
-from flask_restx import Api, Resource, fields
+from flask_restx import Api
 from .producers import api as producer_api
 from .consumers import api as consumer_api
 from .storages import api as storage_api
@@ -8,7 +8,7 @@ from .events import api as events_api
 api = Api(
     title="HSLU Energymanagement API",
     version='1.0',
-    description='REST API for the Energymanagement frontend and other interested parties',
+    description='REST API for the Energymanagement frontend',
     # All API metadatas
 )
 

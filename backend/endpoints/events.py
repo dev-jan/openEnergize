@@ -1,10 +1,11 @@
-from flask_restx import Namespace, Api, Resource, fields
+from flask_restx import Namespace, Resource, fields
 
 api = Namespace('events', description='Events')
 
 event = api.model('Event', {
     'text': fields.String(required=True, description='The text of the event')
 })
+
 
 @api.route('/')
 class EventList(Resource):

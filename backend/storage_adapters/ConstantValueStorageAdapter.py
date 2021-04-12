@@ -1,5 +1,6 @@
 from .AbstractStorageAdapter import AbstractStorageAdapter
 
+
 class ConstantValueStorageAdapter(AbstractStorageAdapter):
     """
     Implementation of the storage that returns the same value every time. The

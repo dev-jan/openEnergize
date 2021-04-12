@@ -1,5 +1,6 @@
 from .AbstractProducerAdapter import AbstractProducerAdapter
 
+
 class ConstantValueProducerAdapter(AbstractProducerAdapter):
     """
     Implementation of the producer that returns the same value every time. The
