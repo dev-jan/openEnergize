@@ -1,0 +1,44 @@
+# Debugging configuration with some fake devices for easy simulation
+check_every: 60
+activation_threshold: 200
+producers:
+    - id: 0
+      name: 'Solarpanel 1'
+      type: 'constant'
+      config:
+        value: '2360.2'
+    - id: 1
+      name: 'Solarpanel 2'
+      type: 'constant'
+      config:
+        value: '0.3'
+
+consumers:
+    - id: 0
+      name: 'Fake Device 1'
+      type: 'fakeControllable'
+      config:
+        value: '111'
+        status: 'READY'
+    - id: 1
+      name: 'Tesla'
+      type: 'constant'
+      config:
+        value: '1433.16'
+    - id: 2
+      name: 'Outdoor Light'
+      type: 'constant'
+      config:
+        value: '0.0'
+    - id: 3
+      name: 'Phone'
+      type: 'constant'
+      config:
+        value: '0.0'
+
+storages:
+    - id: 0
+      name: "My fake battery"
+      type: 'constant'
+      config:
+        value: '98'

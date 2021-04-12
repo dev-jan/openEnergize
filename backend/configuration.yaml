@@ -1,3 +1,4 @@
+# Debugging configuration with some fake devices for easy simulation
 check_every: 60
 activation_threshold: 200
 producers:

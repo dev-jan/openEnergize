@@ -9,7 +9,8 @@ config = None
 def get_configuration() -> dict:
     global config
     if not config or os.environ.get('FLASK_ENV', '') == 'development':
-        with open('debugconfig.yaml') as file:
+        config_path = os.environ.get('APP_CONFIG_PATH', 'configuration.yaml')
+        with open(config_path) as file:
             config = yaml.full_load(file)
 
         if config:
