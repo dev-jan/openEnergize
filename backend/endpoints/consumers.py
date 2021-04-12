@@ -22,14 +22,12 @@ consumer = api.model('Consumer', {
         attribute=lambda x: x['adapter'].get_status())
 })
 
-CONFIG = get_configuration()
-
 @api.route('/')
 class ProducerList(Resource):
     @api.doc('list_consumers')
     @api.marshal_list_with(consumer)
     def get(self):
-        return CONFIG['consumers']
+        return get_configuration()['consumers']
 
 @api.route('/<id>')
 @api.param('id', 'Identifier of the consumer')
@@ -38,7 +36,7 @@ class Producer(Resource):
     @api.doc('get_producter')
     @api.marshal_with(consumer)
     def get(self, id):
-        for consumer in CONFIG['consumers']:
+        for consumer in get_configuration()['consumers']:
             if consumer['id'] == int(id):
                 return consumer
         api.abort(404)

@@ -16,11 +16,9 @@ storage = api.model('Storage', {
         attribute=lambda x: x['adapter'].get_current_storage_capacity())
 })
 
-CONFIG = get_configuration()
-
 @api.route('/')
 class StorageList(Resource):
     @api.doc('list_storages')
     @api.marshal_list_with(storage)
     def get(self):
-        return CONFIG['storages']
+        return get_configuration()['storages']

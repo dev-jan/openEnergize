@@ -16,14 +16,12 @@ producer = api.model('Producer', {
         attribute=lambda x: x['adapter'].get_current_energy_production())
 })
 
-CONFIG = get_configuration()
-
 @api.route('/')
 class ProducerList(Resource):
     @api.doc('list_producers')
     @api.marshal_list_with(producer)
     def get(self):
-        return CONFIG['producers']
+        return get_configuration()['producers']
 
 @api.route('/<id>')
 @api.param('id', 'Identifier of the producer')
@@ -32,7 +30,7 @@ class Producer(Resource):
     @api.doc('get_producter')
     @api.marshal_with(producer)
     def get(self, id):
-        for producer in CONFIG['producers']:
+        for producer in get_configuration()['producers']:
             if producer['id'] == int(id):
                 return producer
         api.abort(404)
