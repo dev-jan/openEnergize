@@ -1,0 +1,5 @@
+# general ignored files
+/.vscode
+/[Tt]mp/
+Thumbs.db
+.DS_Store
