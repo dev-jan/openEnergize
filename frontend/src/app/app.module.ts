@@ -22,6 +22,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { AboutComponent } from './about/about.component';
 import { StorageDetailComponent } from './storage-detail/storage-detail.component';
+import { ConfigurationlistComponent } from './configurationlist/configurationlist.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StorageDetailComponent } from './storage-detail/storage-detail.componen
     NavigationComponent,
     EventlistComponent,
     AboutComponent,
-    StorageDetailComponent
+    StorageDetailComponent,
+    ConfigurationlistComponent
   ],
   imports: [
     BrowserModule,
