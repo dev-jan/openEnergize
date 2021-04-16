@@ -4,6 +4,7 @@ from .consumers import api as consumer_api
 from .storages import api as storage_api
 from .totals import api as totals_api
 from .events import api as events_api
+from .configuration import api as configuration_api
 
 api = Api(
     title="HSLU Energymanagement API",
@@ -17,3 +18,4 @@ api.add_namespace(consumer_api)
 api.add_namespace(storage_api)
 api.add_namespace(totals_api)
 api.add_namespace(events_api)
+api.add_namespace(configuration_api)
