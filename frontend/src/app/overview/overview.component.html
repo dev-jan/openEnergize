@@ -2,6 +2,11 @@
   <h1 class="mat-display-1">Overview</h1>
 
   <h2>Total</h2>
+  <mat-card *ngIf="totalRequestError" class="error--card">
+    <mat-card-content>
+      Error while connecting to backend! Error message: {{ totalRequestError }}
+    </mat-card-content>
+  </mat-card>
   <mat-card *ngIf="totals" class="totals--card">
     <mat-card-content>
       <mat-card-title>{{ totals.energySum | number : '1.0-2' }} W</mat-card-title>

@@ -24,6 +24,7 @@ export class OverviewComponent implements OnInit {
   consumers: Consumer[] = [];
   storages: Storage[] = [];
   totals?: Totals;
+  totalRequestError?: String;
 
   ngOnInit(): void {
     this.producerService.getAllProducers()
@@ -36,7 +37,10 @@ export class OverviewComponent implements OnInit {
         .subscribe(storages => this.storages = storages);
 
     this.totalsService.getTotals()
-        .subscribe(totals => this.totals = totals);
+        .subscribe(
+          totals => this.totals = totals,
+          error => this.totalRequestError = error.message
+        );
   }
 
 }
