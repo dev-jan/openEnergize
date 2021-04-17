@@ -59,6 +59,6 @@ storages:
         value: '98'
     - id: 1
       name: "Simulated VARTA battery"
-      type: 'vartaBattery'
+      type: 'constant'
       config:
-        battery_ip: 'localhost:8000'
+        value: '13'

@@ -6,8 +6,10 @@ from .storage_adapters import STORAGE_TYPE_MAPPING
 
 config = None
 
+
 def get_configuration_file_path() -> str:
     return os.environ.get('APP_CONFIG_PATH', 'configuration.yaml')
+
 
 def get_configuration() -> dict:
     global config
@@ -37,7 +39,7 @@ def get_configuration() -> dict:
 
     return config
 
+
 def get_raw_configuration() -> dict:
     with open(get_configuration_file_path()) as file:
         return file.read()
-    return ""
