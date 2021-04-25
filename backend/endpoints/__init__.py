@@ -10,7 +10,8 @@ api = Api(
     title="HSLU Energymanagement API",
     version='1.0',
     description='REST API for the Energymanagement frontend',
-    # All API metadatas
+    prefix='/api',
+    doc='/api/'
 )
 
 api.add_namespace(producer_api)

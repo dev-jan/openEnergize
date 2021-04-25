@@ -1,5 +1,5 @@
 import logging
-from flask import Flask
+from flask import Flask, redirect
 from .endpoints import api
 from .ConsumerTrigger import start_checking
 from .Configuration import get_configuration
@@ -22,6 +22,9 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+@app.route('/')
+def redirect_to_api():
+    return redirect('/api/')
 
 if __name__ == "__main__":
     app.run()

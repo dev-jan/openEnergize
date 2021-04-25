@@ -5,7 +5,9 @@ services:
     container_name: energymanagement_frontend
     build: ./frontend
     ports:
-      - '8001:80'
+      - '80:80'
+    environment:
+      - API_BACKEND_URL=http://backend:5000
 
   backend:
     container_name: energymanagement_backend

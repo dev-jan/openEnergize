@@ -7,8 +7,8 @@ COPY package*.json /app/
 RUN npm install
 
 COPY . /app
-RUN npm run build --prod
+RUN npm run buildprod
 
 FROM nginx:1.17.1-alpine
 COPY --from=builder /app/dist/frontend /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/templates/default.conf.template
