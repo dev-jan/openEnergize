@@ -23,6 +23,7 @@ import { EventlistComponent } from './eventlist/eventlist.component';
 import { AboutComponent } from './about/about.component';
 import { StorageDetailComponent } from './storage-detail/storage-detail.component';
 import { ConfigurationlistComponent } from './configurationlist/configurationlist.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ConfigurationlistComponent } from './configurationlist/configurationlis
     EventlistComponent,
     AboutComponent,
     StorageDetailComponent,
-    ConfigurationlistComponent
+    ConfigurationlistComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
