@@ -1,12 +1,25 @@
 import logging
+import os
 from flask import Flask, redirect
 from .endpoints import api
 from .ConsumerTrigger import start_checking
 from .Configuration import get_configuration
 
-logging.basicConfig(filename='app.log', level=logging.DEBUG)
-logging.getLogger().addHandler(logging.StreamHandler())
-logging.info("startup backend app")
+
+if os.getenv('FLASK_ENV', 'prod') == 'DEVELOPMENT':
+    logging.basicConfig(level=logging.DEBUG)
+else:
+    logging.basicConfig(level=logging.INFO)
+
+logfile = logging.FileHandler('app.log')
+log_format = '%(asctime)s %(levelname)s %(name)s %(message)s'
+formatter = logging.Formatter(log_format)
+logfile.setFormatter(formatter)
+logging.getLogger().addHandler(logfile)
+
+
+logger = logging.getLogger(__name__)
+logger.info("startup backend app")
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -22,9 +35,11 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+
 @app.route('/')
 def redirect_to_api():
     return redirect('/api/')
+
 
 if __name__ == "__main__":
     app.run()
