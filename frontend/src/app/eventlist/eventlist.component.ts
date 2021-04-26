@@ -12,7 +12,7 @@ export class EventlistComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   events: Event[] = [];
-  eventColumns: string[] = ['text'];
+  eventColumns: string[] = ['timestamp', 'level', 'name', 'text'];
 
   ngOnInit(): void {
     this.reloadEvents();
