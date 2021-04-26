@@ -5,13 +5,15 @@ from .endpoints import api
 from .ConsumerTrigger import start_checking
 from .Configuration import get_configuration
 
-
-if os.getenv('FLASK_ENV', 'prod') == 'DEVELOPMENT':
+logfile_path = 'app.log'
+if os.getenv('FLASK_ENV', 'prod') == 'development':
     logging.basicConfig(level=logging.DEBUG)
+    logging.info("Loglevel is set to debug")
 else:
     logging.basicConfig(level=logging.INFO)
+    logfile_path = 'backend/' + logfile_path
 
-logfile = logging.FileHandler('app.log')
+logfile = logging.FileHandler(logfile_path)
 log_format = '%(asctime)s %(levelname)s %(name)s %(message)s'
 formatter = logging.Formatter(log_format)
 logfile.setFormatter(formatter)
