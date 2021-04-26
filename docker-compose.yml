@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   frontend:
-    container_name: energymanagement_frontend
+    container_name: openenergize_frontend
     build: ./frontend
     restart: always
     ports:
@@ -11,7 +11,7 @@ services:
       - API_BACKEND_URL=http://backend:5000
 
   backend:
-    container_name: energymanagement_backend
+    container_name: openenergize_backend
     build: ./backend
     restart: always
     ports:

@@ -7,9 +7,9 @@ from .events import api as events_api
 from .configuration import api as configuration_api
 
 api = Api(
-    title="HSLU Energymanagement API",
+    title="OpenEnergize API",
     version='1.0',
-    description='REST API for the Energymanagement frontend',
+    description='REST API for OpenEnergize',
     prefix='/api',
     doc='/api/'
 )
