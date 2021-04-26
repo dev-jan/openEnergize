@@ -4,6 +4,7 @@ services:
   frontend:
     container_name: energymanagement_frontend
     build: ./frontend
+    restart: always
     ports:
       - '80:80'
     environment:
@@ -12,6 +13,7 @@ services:
   backend:
     container_name: energymanagement_backend
     build: ./backend
+    restart: always
     ports:
       - '5000:5000'
     volumes:
