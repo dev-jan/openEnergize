@@ -1,10 +1,12 @@
 import yaml
 import os
+import logging
 from .producer_adapters import PRODUCER_TYPE_MAPPING
 from .consumer_adapters import CONSUMER_TYPE_MAPPING
 from .storage_adapters import STORAGE_TYPE_MAPPING
 
 config = None
+logger = logging.getLogger(__name__)
 
 
 def get_configuration_file_path() -> str:
@@ -14,6 +16,7 @@ def get_configuration_file_path() -> str:
 def get_configuration() -> dict:
     global config
     if not config or os.environ.get('FLASK_ENV', '') == 'development':
+        logger.debug("Reload configuration")
         config_path = get_configuration_file_path()
         with open(config_path) as file:
             config = yaml.full_load(file)
