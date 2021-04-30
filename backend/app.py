@@ -6,7 +6,7 @@ from .ConsumerTrigger import start_checking
 from .Configuration import get_configuration
 
 logfile_path = 'app.log'
-if os.getenv('FLASK_ENV', 'prod') == 'development':
+if os.getenv('FLASK_ENV', '') == 'development':
     logging.basicConfig(level=logging.DEBUG)
     logging.info("Loglevel is set to debug")
 else:
