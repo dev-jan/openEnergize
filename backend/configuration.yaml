@@ -20,6 +20,7 @@ consumers:
       config:
         value: '111'
         status: 'READY'
+        activation_threshold: 20
     - id: 1
       name: 'Tesla'
       type: 'constant'
