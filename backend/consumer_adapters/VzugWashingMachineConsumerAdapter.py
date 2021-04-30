@@ -1,6 +1,6 @@
 import logging
 import requests
-from urllib.parse import urljoin
+from urllib.parse import urljoin, quote_plus
 from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
 
@@ -24,7 +24,18 @@ class VzugWashingMachineConsumerAdapter(AbstractConsumerAdapter):
         self.logger = logging.getLogger(__name__)
 
     def get_current_energy_consumption(self) -> float:
-        return self.config['value']
+        address = self.config['ip']
+        url = urljoin('http://' + address, '/hh?command=getEcoInfo')
+        try:
+            response = requests.get(url)
+            if response.ok:
+                return response.json()['energy']['program']
+        except:
+            self.logger.warn(
+                "Cannot get energy consumption from device! config: " +
+                str(self.config)
+            )
+        return 0
 
     def get_type(self) -> str:
         return 'vzugWashingMachine'
@@ -36,15 +47,18 @@ class VzugWashingMachineConsumerAdapter(AbstractConsumerAdapter):
         address = self.config['ip']
         url = urljoin('http://' + address, '/hh?command=getSmartStart')
         response = requests.get(url)
-        smartStartActive = response.json()['active']
-        if smartStartActive:
-            return AbstractConsumerAdapter.STATUS_READY
+        if response.ok:
+            smartStartActive = response.json()['active']
+            if smartStartActive:
+                return AbstractConsumerAdapter.STATUS_READY
+            else:
+                return AbstractConsumerAdapter.STATUS_ONLINE
         else:
-            return AbstractConsumerAdapter.STATUS_ONLINE
+            return AbstractConsumerAdapter.STATUS_OFFLINE
 
     def activate(self):
-        payload = "{'starttime': 0}"
         address = self.config['ip']
-        url = urljoin('http://' + address, '/hh?command=setSmartStart?value=' + payload)
+        payload = quote_plus('{"starttime": 0}')
+        url = urljoin('http://' + address, '/hh?command=setSmartStart&value=' + payload)
         response = requests.get(url)
-        self.logger.info('Activated controllable consumer! response: ' + response.json())
+        self.logger.info('Activated V-ZUG Device! response: ' + str(response.json()))
