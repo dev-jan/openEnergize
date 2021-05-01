@@ -4,16 +4,17 @@ from urllib.parse import urljoin, quote_plus
 from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
 
-class VzugWashingMachineConsumerAdapter(AbstractConsumerAdapter):
+class VzugHomeConsumerAdapter(AbstractConsumerAdapter):
     """
-    Implementation of a V-ZUG Washing Machine Consumer. The washing machine
-    must have the feature "V-ZUG HOME" and must be accessible via Network.
+    Implementation of a V-ZUG Home Consumer. This could be a Washing machine,
+    a Dishwasher or a Tumber. The requirement of the device is, that it
+    must have the feature V-ZUG Home and must be accessible via network.
     Also the HH-Firmware Version must be at least 1.1 (can be found in the
     settings of the device).
 
     For security reason, the washing machine can only be activated if someone
-    fill the device and start it with the "start later" option. Only then is the
-    device ready to be activated.
+    fill the device and start it with the "start later" option. Only then is
+    the device ready to be activated.
 
     configuration:
       ip: IP Address of the device in the network
@@ -30,7 +31,7 @@ class VzugWashingMachineConsumerAdapter(AbstractConsumerAdapter):
             response = requests.get(url)
             if response.ok:
                 return response.json()['energy']['program']
-        except:
+        except requests.exceptions.ConnectionError:
             self.logger.warn(
                 "Cannot get energy consumption from device! config: " +
                 str(self.config)
@@ -46,14 +47,21 @@ class VzugWashingMachineConsumerAdapter(AbstractConsumerAdapter):
     def get_status(self) -> str:
         address = self.config['ip']
         url = urljoin('http://' + address, '/hh?command=getSmartStart')
-        response = requests.get(url)
-        if response.ok:
-            smartStartActive = response.json()['active']
-            if smartStartActive:
-                return AbstractConsumerAdapter.STATUS_READY
+        try:
+            response = requests.get(url)
+            if response.ok:
+                smart_start_active = response.json()['active']
+                if smart_start_active:
+                    return AbstractConsumerAdapter.STATUS_READY
+                else:
+                    return AbstractConsumerAdapter.STATUS_ONLINE
             else:
-                return AbstractConsumerAdapter.STATUS_ONLINE
-        else:
+                return AbstractConsumerAdapter.STATUS_OFFLINE
+        except requests.exceptions.ConnectionError:
+            self.logger.warn(
+                "Cannot get energy consumption from device! config: " +
+                str(self.config)
+            )
             return AbstractConsumerAdapter.STATUS_OFFLINE
 
     def activate(self):
