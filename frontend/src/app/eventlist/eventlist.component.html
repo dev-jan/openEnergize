@@ -5,21 +5,23 @@
     <button mat-raised-button (click)="reloadEvents()"><mat-icon>autorenew</mat-icon> Reload</button>
   </div>
 
-  <table mat-table [dataSource]="events" class="mat-elevation-z6">
+  <table mat-table [dataSource]="events"
+         class="mat-elevation-z6"
+         aria-describedby="List of events">
     <ng-container matColumnDef="timestamp">
-      <th mat-header-cell *matHeaderCellDef>Timestamp</th>
+      <th scope="col" mat-header-cell *matHeaderCellDef>Timestamp</th>
       <td mat-cell *matCellDef="let element">{{ element.timestamp }}</td>
     </ng-container>
     <ng-container matColumnDef="level">
-      <th mat-header-cell *matHeaderCellDef>Level</th>
+      <th scope="col" mat-header-cell *matHeaderCellDef>Level</th>
       <td mat-cell *matCellDef="let element">{{ element.level }}</td>
     </ng-container>
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Module Name</th>
+      <th scope="col" mat-header-cell *matHeaderCellDef>Module Name</th>
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
     <ng-container matColumnDef="text">
-      <th mat-header-cell *matHeaderCellDef>Message</th>
+      <th scope="col" mat-header-cell *matHeaderCellDef>Message</th>
       <td mat-cell *matCellDef="let element">{{ element.text }}</td>
     </ng-container>
 
