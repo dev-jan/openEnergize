@@ -10,9 +10,12 @@ export class ConsumerDetailComponent implements OnInit {
 
   @Input() consumer?: Consumer;
 
-  constructor() { }
+  constructor() {
+    // intentionally empty
+  }
 
   ngOnInit(): void {
+    // intentionally empty
   }
 
 }

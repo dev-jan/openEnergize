@@ -28,17 +28,17 @@ class ProducerList(Resource):
         consumers = config['consumers']
         producers = config['producers']
 
-        totalConsumption = sum(
+        total_consumption = sum(
             float(c['adapter'].get_current_energy_consumption())
             for c in consumers
         )
-        totalProduction = sum(
+        total_production = sum(
             float(p['adapter'].get_current_energy_production())
             for p in producers
         )
 
         return {
-            'totalEnergyProduction': totalProduction,
-            'totalEnergyConsumption': totalConsumption,
-            'energySum': totalProduction - totalConsumption
+            'totalEnergyProduction': total_production,
+            'totalEnergyConsumption': total_consumption,
+            'energySum': total_production - total_consumption
         }

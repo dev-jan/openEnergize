@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    // intentionally empty
+  }
 
   ngOnInit(): void {
+    // intentionally empty
   }
 
 }

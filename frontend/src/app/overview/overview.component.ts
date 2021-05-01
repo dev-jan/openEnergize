@@ -24,7 +24,7 @@ export class OverviewComponent implements OnInit {
   consumers: Consumer[] = [];
   storages: Storage[] = [];
   totals?: Totals;
-  totalRequestError?: String;
+  totalRequestError?: string;
 
   ngOnInit(): void {
     this.producerService.getAllProducers()

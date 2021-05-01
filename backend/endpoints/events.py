@@ -35,11 +35,11 @@ class EventList(Resource):
                 line = line.rstrip('\n')
                 fields = line.split(' ')
                 if len(fields) > 5 and fields[3] != 'werkzeug':
-                    singleEvent = {}
-                    singleEvent['timestamp'] = fields[0] + " " + fields[1]
-                    singleEvent['level'] = fields[2]
-                    singleEvent['name'] = fields[3]
-                    singleEvent['text'] = ' '.join(fields[4:])
-                    events.append(singleEvent)
+                    event = {}
+                    event['timestamp'] = fields[0] + " " + fields[1]
+                    event['level'] = fields[2]
+                    event['name'] = fields[3]
+                    event['text'] = ' '.join(fields[4:])
+                    events.append(event)
         events.reverse()
         return events

@@ -1,3 +1,4 @@
+---
 # Debugging configuration with some fake devices for easy simulation
 check_every: 60
 activation_threshold: 200
@@ -6,60 +7,60 @@ producers:
       name: 'Solarpanel 1'
       type: 'constant'
       config:
-        value: '2360.2'
+          value: '2360.2'
     - id: 1
       name: 'Solarpanel 2'
       type: 'constant'
       config:
-        value: '0.3'
+          value: '0.3'
 
 consumers:
     - id: 0
       name: 'Fake Device 1'
       type: 'fakeControllable'
       config:
-        value: '111'
-        status: 'READY'
-        activation_threshold: 20
+          value: '111'
+          status: 'READY'
+          activation_threshold: 20
     - id: 1
       name: 'Tesla'
       type: 'constant'
       config:
-        value: '1433.16'
+          value: '1433.16'
     - id: 2
       name: 'Outdoor Light'
       type: 'constant'
       config:
-        value: '0.0'
+          value: '0.0'
     - id: 3
       name: 'Phone'
       type: 'constant'
       config:
-        value: '0.0'
+          value: '0.0'
     - id: 4
       name: 'Some other fake Device'
       type: 'constant'
       config:
-        value: '0.0'
+          value: '0.0'
     - id: 5
       name: 'Some other fake Device'
       type: 'constant'
       config:
-        value: '0.0'
+          value: '0.0'
     - id: 6
       name: 'Some other fake Device'
       type: 'constant'
       config:
-        value: '0.0'
+          value: '0.0'
 
 storages:
     - id: 0
       name: "My fake battery"
       type: 'constant'
       config:
-        value: '98'
+          value: '98'
     - id: 1
       name: "Simulated VARTA battery"
       type: 'constant'
       config:
-        value: '13'
+          value: '13'

@@ -26,7 +26,7 @@ class ModbusProducerAdapter(AbstractProducerAdapter):
 
     @cachedmethod(operator.attrgetter('cache'))
     def get_current_energy_production(self) -> float:
-        for i in range(10):
+        for _ in range(10):
             client = ModbusTcpClient(
                 self.config['gatewayIP'],
                 port=self.config['gatewayPort']
@@ -48,13 +48,15 @@ class ModbusProducerAdapter(AbstractProducerAdapter):
                     Endian.Big,
                     wordorder=Endian.Big
                 )
-                rawValue = decoder.decode_32bit_int()
-                realValue = rawValue * factor
-                return realValue
+                raw_value = decoder.decode_32bit_int()
+                real_value = raw_value * factor
+                return real_value
             else:
-                self.logger.error("Cannot read values from modbus! config: " + str(self.config))
-                self.logger.error(result)
-                continue
+                self.logger.warn('Cannot read values from modbus, retry...')
+        self.logger.error(
+            'All retries failed to read values for producer %s' %
+            str(self.config)
+        )
         return 0
 
     def get_type(self) -> str:

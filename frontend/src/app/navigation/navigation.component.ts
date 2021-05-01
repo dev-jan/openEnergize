@@ -9,9 +9,12 @@ export class NavigationComponent implements OnInit {
 
   @Output() sidenavClose = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    // intentionally empty
+  }
 
   ngOnInit(): void {
+    // intentionally empty
   }
 
   public onSidenavClose = () => {

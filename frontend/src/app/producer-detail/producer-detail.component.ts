@@ -10,9 +10,12 @@ export class ProducerDetailComponent implements OnInit {
 
   @Input() producer?: Producer;
 
-  constructor() { }
+  constructor() {
+    // intentionally empty
+  }
 
   ngOnInit(): void {
+    // intentionally empty
   }
 
 }

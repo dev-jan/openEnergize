@@ -10,9 +10,12 @@ export class StorageDetailComponent implements OnInit {
 
   @Input() storage?: Storage;
 
-  constructor() { }
+  constructor() {
+    // intentionally empty
+  }
 
   ngOnInit(): void {
+    // intentionally empty
   }
 
 }
