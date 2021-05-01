@@ -3,3 +3,6 @@
 /[Tt]mp/
 Thumbs.db
 .DS_Store
+
+# Sonarscanner files
+/.scannerwork/
