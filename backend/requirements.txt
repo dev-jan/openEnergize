@@ -3,3 +3,4 @@ flask_restx
 requests
 pyyaml
 pymodbus
+cachetools
