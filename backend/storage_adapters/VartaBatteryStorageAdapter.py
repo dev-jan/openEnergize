@@ -20,6 +20,3 @@ class VartaBatteryStorageAdapter(AbstractStorageAdapter):
         tree = et.fromstring(response.content)
         value = tree.find("./inverter/var[@name='SOC']").attrib['value']
         return value
-
-    def get_type(self) -> str:
-        return 'vartabattery'

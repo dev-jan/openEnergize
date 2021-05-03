@@ -11,10 +11,6 @@ class AbstractConsumerAdapter:
         """ Returns the current energy consumption """
         pass
 
-    def get_type(self) -> str:
-        """ Returns the key of the type of the consumption adapter """
-        pass
-
     def is_controllable(self) -> bool:
         """ Returns if the consumer is controllable via this platform """
         return False

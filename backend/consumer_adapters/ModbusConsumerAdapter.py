@@ -59,6 +59,3 @@ class ModbusConsumerAdapter(AbstractConsumerAdapter):
             str(self.config)
         )
         return 0
-
-    def get_type(self) -> str:
-        return 'modbus'

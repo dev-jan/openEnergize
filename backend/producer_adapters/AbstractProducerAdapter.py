@@ -5,7 +5,3 @@ class AbstractProducerAdapter:
     def get_current_energy_production(self) -> float:
         """ Returns the current energy production """
         pass
-
-    def get_type(self) -> str:
-        """ Returns the key of the type of the production adapter """
-        pass

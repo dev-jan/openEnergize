@@ -8,8 +8,7 @@ producer = api.model('Producer', {
     'name': fields.String(required=True, description='Name of the producer'),
     'type': fields.String(
         required=True,
-        description='Type of the producter',
-        attribute=lambda x: x['adapter'].get_type()
+        description='Type of the producter'
     ),
     'currentProductionInWatt': fields.Float(
         required=False,

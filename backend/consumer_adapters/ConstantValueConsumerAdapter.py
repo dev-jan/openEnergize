@@ -9,6 +9,3 @@ class ConstantValueConsumerAdapter(AbstractConsumerAdapter):
 
     def get_current_energy_consumption(self) -> float:
         return self.config['value']
-
-    def get_type(self) -> str:
-        return 'constant'

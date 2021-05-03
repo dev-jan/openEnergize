@@ -8,8 +8,7 @@ storage = api.model('Storage', {
     'name': fields.String(required=True, description='Name of the storage'),
     'type': fields.String(
         required=True,
-        description='Type of the storage',
-        attribute=lambda x: x['adapter'].get_type()
+        description='Type of the storage'
     ),
     'currentStorageCapacityInPercent': fields.Float(
         required=False,

@@ -38,9 +38,6 @@ class VzugHomeConsumerAdapter(AbstractConsumerAdapter):
             )
         return 0
 
-    def get_type(self) -> str:
-        return 'vzugWashingMachine'
-
     def is_controllable(self) -> bool:
         return True
 
