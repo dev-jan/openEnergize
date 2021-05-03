@@ -7,6 +7,7 @@ import { Producer } from '../models/Producer';
 import { Consumer } from '../models/Consumer';
 import { Storage } from '../models/Storage';
 import { Totals } from '../models/Totals';
+import { PartialObserver } from 'rxjs';
 
 @Component({
   selector: 'app-overview',
@@ -28,19 +29,28 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.producerService.getAllProducers()
-        .subscribe(producers => this.producers = producers);
+        .subscribe({
+          next: producers => this.producers = producers,
+          error: error => console.log('Error while getting producers!' + error.message)
+        } as PartialObserver<Producer[]>);
 
     this.consumerService.getAllConsumers()
-        .subscribe(consumers => this.consumers = consumers);
+        .subscribe({
+          next: consumers => this.consumers = consumers,
+          error: error => console.log('Error while getting consumers!' + error.message)
+        } as PartialObserver<Consumer[]>);
 
     this.storageService.getAllStorages()
-        .subscribe(storages => this.storages = storages);
+        .subscribe({
+          next: storages => this.storages = storages,
+          error: error => console.log('Error while getting storages!' + error.message)
+        } as PartialObserver<Storage[]>);
 
     this.totalsService.getTotals()
-        .subscribe(
-          totals => this.totals = totals,
-          error => this.totalRequestError = error.message
-        );
+        .subscribe({
+          next: totals => this.totals = totals,
+          error: error => this.totalRequestError = error.message
+        } as PartialObserver<Totals>);
   }
 
 }
