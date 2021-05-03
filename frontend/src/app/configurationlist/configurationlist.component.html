@@ -1,6 +1,12 @@
 <div class="container md-padding">
   <h1 class="mat-display-1">Configuration</h1>
 
+  <mat-card *ngIf="errorMessage" class="error--card">
+    <mat-card-content>
+      Error while connecting to backend! Error message: {{ errorMessage }}
+    </mat-card-content>
+  </mat-card>
+
   <div><strong>API URL: </strong></div>
   <div class="section">
     <a href="{{ environmentConfig.apiUrl }}" target="_blank">{{ environmentConfig.apiUrl }}</a>
