@@ -33,8 +33,10 @@ start_checking(get_configuration())
 
 @app.after_request
 def after_request(response):
-    # TODO: Make this policy more restrictive for security reasons
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add(
+        'Access-Control-Allow-Origin',
+        os.getenv('FLASK_CORS_ORIGIN', '*')
+    )
     return response
 
 
