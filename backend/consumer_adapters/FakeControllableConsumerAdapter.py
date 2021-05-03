@@ -7,6 +7,10 @@ class FakeControllableConsumerAdapter(AbstractConsumerAdapter):
     Implementation of a consumer that returns the same value every time. The
     value is provided as config "value". This adapter also allows to fake an
     action, as it is controllable (but does nothing on activation).
+
+    configuration:
+      value: Energy Consumption value in Watt
+      status: Status of the device (see AbstractConsumerAdapter for values)
     """
 
     def __init__(self, config):

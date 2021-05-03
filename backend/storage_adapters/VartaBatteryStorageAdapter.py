@@ -8,10 +8,13 @@ class VartaBatteryStorageAdapter(AbstractStorageAdapter):
     """
     Implementation of the storage that returns the energy level of a VARTA
     battery (see https://www.varta-ag.com/).
+
+    configuration:
+      ip: IP Address of the device in the network
     """
 
     def get_current_storage_capacity(self) -> float:
-        battery_ip = self.config['battery_ip']
+        battery_ip = self.config['ip']
         url = urljoin('http://' + battery_ip, '/cgi/ems_data.xml')
         response = requests.get(url)
         tree = et.fromstring(response.content)
