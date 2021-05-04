@@ -11,3 +11,18 @@
   margin-bottom: 2em;
   background-color: red;
 }
+
+.device--container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.device--tile {
+  max-width: 300px;
+  display: inline-block;
+
+  @media screen and (max-width: 720px) {
+    max-width: 100%;
+    display: block;
+  }
+}

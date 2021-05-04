@@ -14,24 +14,20 @@
   </mat-card>
 
   <h2>Producers and Storages</h2>
-  <mat-grid-list cols="5">
-    <div *ngFor='let producer of producers'>
-      <mat-grid-tile>
-        <app-producer-detail [producer]="producer"></app-producer-detail>
-      </mat-grid-tile>
+  <div class="device--container">
+    <div *ngFor='let producer of producers' class="device--tile">
+      <app-producer-detail [producer]="producer"></app-producer-detail>
     </div>
-    <div *ngFor='let storage of storages'>
-      <mat-grid-tile>
-        <app-storage-detail [storage]="storage"></app-storage-detail>
-      </mat-grid-tile>
+    <div *ngFor='let storage of storages' class="device--tile">
+      <app-storage-detail [storage]="storage"></app-storage-detail>
     </div>
-  </mat-grid-list>
+  </div>
 
   <h2>Consumers</h2>
-  <mat-grid-list cols="5">
-    <mat-grid-tile *ngFor='let consumer of consumers'>
+  <div class="device--container">
+    <div *ngFor='let consumer of consumers' class="device--tile">
       <app-consumer-detail [consumer]="consumer"></app-consumer-detail>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </div>
+  </div>
 
 </div>
