@@ -8,7 +8,7 @@ def test_configuration_getall():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/configuration/')
+        response = test_client.get('/api/configuration/')
         assert response.status_code == 200
         assert 'Solarpanel 1' in response.json['raw']
         assert 'check_every: 60' in response.json['raw']

@@ -8,7 +8,7 @@ def test_producer_getall():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/producers/')
+        response = test_client.get('/api/producers/')
         assert response.status_code == 200
         assert response.json[0]['name'] == 'Solarpanel 1'
         assert response.json[0]['id'] == 0
@@ -24,7 +24,7 @@ def test_producer_getById():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/producers/1')
+        response = test_client.get('/api/producers/1')
         assert response.status_code == 200
         assert response.json['id'] == 1
         assert response.json['name'] == 'Solarpanel 2'
@@ -39,5 +39,5 @@ def test_producer_getById_invalid():
     THEN check that the response is 404
     """
     with app.test_client() as test_client:
-        response = test_client.get('/producers/999999')
+        response = test_client.get('/api/producers/999999')
         assert response.status_code == 404

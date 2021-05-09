@@ -8,7 +8,7 @@ def test_storages_getall():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/storages/')
+        response = test_client.get('/api/storages/')
         assert response.status_code == 200
         assert response.json[0]['name'] == 'My fake battery'
         assert response.json[0]['id'] == 0

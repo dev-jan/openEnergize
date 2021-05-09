@@ -8,6 +8,6 @@ def test_events_getall():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/events/')
+        response = test_client.get('/api/events/')
         assert response.status_code == 200
         assert isinstance(response.json, list)

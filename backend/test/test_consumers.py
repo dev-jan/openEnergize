@@ -8,7 +8,7 @@ def test_consumers_getall():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/consumers/')
+        response = test_client.get('/api/consumers/')
         assert response.status_code == 200
         assert response.json[0]['name'] == 'Fake Device 1'
         assert response.json[0]['id'] == 0
@@ -26,7 +26,7 @@ def test_consumers_getById():
     THEN check that the response is valid
     """
     with app.test_client() as test_client:
-        response = test_client.get('/consumers/2')
+        response = test_client.get('/api/consumers/2')
         assert response.status_code == 200
         assert response.json['name'] == 'Outdoor Light'
         assert response.json['id'] == 2
@@ -43,5 +43,5 @@ def test_consumers_getById_invalid():
     THEN check that the response is 404
     """
     with app.test_client() as test_client:
-        response = test_client.get('/consumers/999999')
+        response = test_client.get('/api/consumers/999999')
         assert response.status_code == 404
