@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EventlistComponent } from './eventlist.component';
@@ -8,7 +9,8 @@ describe('EventlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EventlistComponent ]
+      declarations: [ EventlistComponent ],
+      imports: [ HttpClientModule ]
     })
     .compileComponents();
   });
