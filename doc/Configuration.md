@@ -70,6 +70,7 @@ List of the consumer devices. Every consumer has the following attributes:
   * 'fakeControllable': Same as the constant provider, but is also controllable (does nothing)
   * 'vzugHome': Controls a V-ZUG Device (that is equipped with V-ZUG Home)
   * 'influxDb': Get the current energy production from an Influx DB
+  * 'sgReady': Controls a SG-Ready Device (Smart Grid Ready heat pumps)
 * config: Configuration of the consumer. For the possible configuration values for each
   consumer, see the documentation of the different consumers.
 
