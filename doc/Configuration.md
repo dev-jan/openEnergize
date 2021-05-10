@@ -68,7 +68,8 @@ List of the consumer devices. Every consumer has the following attributes:
   * 'constant': Return a constant value
   * 'modbus': Return a value from a Modbus Device
   * 'fakeControllable': Same as the constant provider, but is also controllable (does nothing)
-  * 'vzugHome': Controlls a V-ZUG Device (that is equipped with V-ZUG Home)
+  * 'vzugHome': Controls a V-ZUG Device (that is equipped with V-ZUG Home)
+  * 'influxDb': Get the current energy production from an Influx DB
 * config: Configuration of the consumer. For the possible configuration values for each
   consumer, see the documentation of the different consumers.
 
