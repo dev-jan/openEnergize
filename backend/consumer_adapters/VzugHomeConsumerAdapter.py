@@ -36,6 +36,8 @@ class VzugHomeConsumerAdapter(AbstractConsumerAdapter):
                 "Cannot get energy consumption from device! config: " +
                 str(self.config)
             )
+        except KeyError:
+            self.logger.warn("Cannot read energy consumption. JSON was: " + str(response))
         return 0
 
     def is_controllable(self) -> bool:
