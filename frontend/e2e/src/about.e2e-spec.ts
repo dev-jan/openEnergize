@@ -1,21 +1,19 @@
 import { browser, logging } from 'protractor';
-import { AppPage } from './app.po';
+import { AboutPage } from './about.po';
 
-describe('App Root', () => {
-  let page: AppPage;
+describe('About Page', () => {
+  let page: AboutPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AboutPage();
   });
 
-  it('should display correct title', async () => {
+  it('should display licenses links', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('OpenEnergize');
-  });
-
-  it('should display all navigation entries', async () => {
-    await page.navigateTo();
-    expect((await page.getNavigationEntries()).length).toBe(4);
+    let links = await page.getLicenseLinks();
+    expect(links.length).toBe(3);
+    expect(links).toContain('https://fontawesome.com/');
+    expect(links).toContain('https://picsum.photos/');
   });
 
   afterEach(async () => {

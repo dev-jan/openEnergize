@@ -1,21 +1,16 @@
 import { browser, logging } from 'protractor';
-import { AppPage } from './app.po';
+import { EventlistPage } from './eventlist.po';
 
-describe('App Root', () => {
-  let page: AppPage;
+describe('Eventlist Page', () => {
+  let page: EventlistPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new EventlistPage();
   });
 
-  it('should display correct title', async () => {
+  it('should display the reload button', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('OpenEnergize');
-  });
-
-  it('should display all navigation entries', async () => {
-    await page.navigateTo();
-    expect((await page.getNavigationEntries()).length).toBe(4);
+    expect(await page.getReloadButtonText()).toEqual('autorenew Reload');
   });
 
   afterEach(async () => {
