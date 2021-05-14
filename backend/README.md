@@ -1,10 +1,15 @@
 # Backend service
 
 ## Setup dev environment
+Requirements:
+ - Python > 3.8 is installed
+ - Poetry is installed (https://python-poetry.org/docs/)
+
 ```
 pip3 install virtualenv
 virtualenv venv
-pip3 install -r requirements.txt
+source venv/bin/activate
+poetry install
 ```
 
 ## Startup in development

@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "openenergize-backend"
+version = "0.1.0"
+description = ""
+authors = ["Jan Bucher <jan@bucher.cloud>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^1.1.4"
+flask-restx = "^0.4.0"
+requests = "^2.25.1"
+PyYAML = "^5.4.1"
+pymodbus = "^2.5.2"
+cachetools = "^4.2.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
