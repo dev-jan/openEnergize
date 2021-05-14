@@ -24,7 +24,7 @@ class SGreadyConsumerAdapter(AbstractConsumerAdapter):
       gatewayPort: Port of the Modbus Gateway
       address: Memory Address of the SG Ready input 1
       unit: The Modbus unit address of the consumer
-      deactivationTimeout: Time to wait before resetting the device back to normal mode
+      deactivationTimeout: Time to wait before resetting back to normal mode
     """
 
     def __init__(self, config):
@@ -39,8 +39,7 @@ class SGreadyConsumerAdapter(AbstractConsumerAdapter):
         return True
 
     def get_status(self) -> str:
-        client = ModbusTcpClient(self.config['gatewayIP'], port=self.config['gatewayPort'])
-        client.connect()
+        client = self.get_modbus_connection()
         result = client.read_holding_registers(
             address=self.config['address'],
             count=1,
@@ -56,25 +55,29 @@ class SGreadyConsumerAdapter(AbstractConsumerAdapter):
 
     def deactivate_after_timeout(self):
         time.sleep(self.config.get('deactivationTimeout', 200))
-        client = ModbusTcpClient(self.config['gatewayIP'], port=self.config['gatewayPort'])
-        client.connect()
+        client = self.get_modbus_connection()
         result = client.write_register(
             address=self.config['address'],
             value=0,
             unit=self.config['unit']
         )
-        self.logger.info('SG Ready device is back in normal mode')
+        if result.isError():
+            self.logger.error('Cannot reset SG Ready device back to normal')
+        else:
+            self.logger.info('SG Ready device is back in normal mode')
 
     def activate(self):
-        client = ModbusTcpClient(self.config['gatewayIP'], port=self.config['gatewayPort'])
-        client.connect()
+        client = self.get_modbus_connection()
         result = client.write_register(
             address=self.config['address'],
             value=1,
             unit=self.config['unit']
         )
         if result.isError():
-            self.logger.warn('Cannot activate SG-Ready device! config: ' + str(self.config))
+            self.logger.warn(
+                'Cannot activate SG-Ready device! config: %s' %
+                str(self.config)
+            )
         else:
             self.logger.info('Activated SG-Ready Device ' + str(self.config))
             thread = threading.Thread(
@@ -82,3 +85,11 @@ class SGreadyConsumerAdapter(AbstractConsumerAdapter):
             )
             thread.daemon = True
             thread.start()
+
+    def get_modbus_connection(self) -> ModbusTcpClient:
+        client = ModbusTcpClient(
+            self.config['gatewayIP'],
+            port=self.config['gatewayPort']
+        )
+        client.connect()
+        return client

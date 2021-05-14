@@ -33,11 +33,14 @@ class VzugHomeConsumerAdapter(AbstractConsumerAdapter):
                 return response.json()['energy']['program']
         except requests.exceptions.ConnectionError:
             self.logger.warn(
-                "Cannot get energy consumption from device! config: " +
+                'Cannot get energy consumption from device! config: %s' %
                 str(self.config)
             )
         except KeyError:
-            self.logger.warn("Cannot read energy consumption. JSON was: " + str(response))
+            self.logger.warn(
+                'Cannot read energy consumption. JSON was: %s' %
+                str(response)
+            )
         return 0
 
     def is_controllable(self) -> bool:
@@ -58,7 +61,7 @@ class VzugHomeConsumerAdapter(AbstractConsumerAdapter):
                 return AbstractConsumerAdapter.STATUS_OFFLINE
         except requests.exceptions.ConnectionError:
             self.logger.warn(
-                "Cannot get energy consumption from device! config: " +
+                'Cannot get energy consumption from device! config: %s' %
                 str(self.config)
             )
             return AbstractConsumerAdapter.STATUS_OFFLINE
@@ -66,6 +69,12 @@ class VzugHomeConsumerAdapter(AbstractConsumerAdapter):
     def activate(self):
         address = self.config['ip']
         payload = quote_plus('{"starttime": 0}')
-        url = urljoin('http://' + address, '/hh?command=setSmartStart&value=' + payload)
+        url = urljoin(
+            'http://' + address,
+            '/hh?command=setSmartStart&value=' + payload
+        )
         response = requests.get(url)
-        self.logger.info('Activated V-ZUG Device! response: ' + str(response.json()))
+        self.logger.info(
+            'Activated V-ZUG Device! response: %s' %
+            str(response.json())
+        )

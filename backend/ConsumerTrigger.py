@@ -48,9 +48,9 @@ def check_if_consumer_trigger_is_needed(config: dict):
                 )
             controllable_and_ready_consumer = next(
                 (c for c in config['consumers']
-                if c['adapter'].is_controllable() and
-                c['adapter'].get_status() == 'READY' and
-                energy_sum > c['config'].get('activation_threshold', 0)),
+                 if c['adapter'].is_controllable() and
+                 c['adapter'].get_status() == 'READY' and
+                 energy_sum > c['config'].get('activation_threshold', 0)),
                 None
             )
             if controllable_and_ready_consumer:

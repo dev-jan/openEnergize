@@ -11,7 +11,7 @@ class InfluxDbConsumerAdapter(AbstractConsumerAdapter):
 
     configuration:
       url: Address of the influxDB (example: https://localhost:8086)
-      attribute: Full name of the attribute to fetch (including DB/retention policy name)
+      attribute: Full name of the attribute to fetch (including DB/RP name)
       column: Name of the column to fetch
     """
 
@@ -27,11 +27,13 @@ class InfluxDbConsumerAdapter(AbstractConsumerAdapter):
         url = urljoin(address, '/query?q=' + quote_plus(query))
         try:
             response = requests.get(url)
-            if response.ok:
-                return response.json()['results'][0]['series'][0]['values'][0][1]
+            if not response.ok:
+                raise requests.exceptions.ConnectionError('invalid response!')
+
+            return response.json()['results'][0]['series'][0]['values'][0][1]
         except requests.exceptions.ConnectionError:
             self.logger.warn(
-                "Cannot get energy consumption from device! config: " +
+                'Cannot get energy consumption from device! config: ' +
                 str(self.config)
             )
         except KeyError:
