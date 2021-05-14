@@ -1,3 +1,5 @@
+import os
+import logging
 from flask_restx import Namespace, Resource, fields
 
 api = Namespace('events', description='Events')
@@ -29,7 +31,13 @@ class EventList(Resource):
     @api.marshal_list_with(event)
     def get(self):
         events = []
-        with open('./app.log') as file:
+        log_paths = [h.baseFilename for h in logging.getLogger().handlers if isinstance(h, logging.FileHandler)]
+        logfile = next(iter(log_paths))
+
+        if not os.path.isfile(logfile):
+            return events
+
+        with open(logfile) as file:
             lines = file.readlines()
             for line in lines:
                 line = line.rstrip('\n')
