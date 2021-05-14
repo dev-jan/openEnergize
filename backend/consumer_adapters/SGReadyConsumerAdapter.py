@@ -5,7 +5,7 @@ from pymodbus.client.sync import ModbusTcpClient
 from .AbstractConsumerAdapter import AbstractConsumerAdapter
 
 
-class SGreadyConsumerAdapter(AbstractConsumerAdapter):
+class SGReadyConsumerAdapter(AbstractConsumerAdapter):
     """
     Implementation of a SG Ready (SmartGrid Ready) consumer
     via Modbus. SG Ready is a label that is used in the DACH region
