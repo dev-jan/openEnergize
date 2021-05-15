@@ -31,7 +31,10 @@ class EventList(Resource):
     @api.marshal_list_with(event)
     def get(self):
         events = []
-        log_paths = [h.baseFilename for h in logging.getLogger().handlers if isinstance(h, logging.FileHandler)]
+        log_paths = [
+            h.baseFilename for h in logging.getLogger().handlers
+            if isinstance(h, logging.FileHandler)
+        ]
         logfile = next(iter(log_paths))
 
         if not os.path.isfile(logfile):

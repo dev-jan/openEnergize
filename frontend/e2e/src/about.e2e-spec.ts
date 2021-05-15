@@ -10,7 +10,7 @@ describe('About Page', () => {
 
   it('should display licenses links', async () => {
     await page.navigateTo();
-    let links = await page.getLicenseLinks();
+    const links = await page.getLicenseLinks();
     expect(links.length).toBe(3);
     expect(links).toContain('https://fontawesome.com/');
     expect(links).toContain('https://picsum.photos/');
