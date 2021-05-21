@@ -41,7 +41,7 @@ describe('StorageService', () => {
       expect(storages).toEqual(dummyStorageInfos);
     });
 
-    const req = httpMock.expectOne('http://localhost:5000/api/storages');
+    const req = httpMock.expectOne('http://localhost:5000/api/storages/');
     expect(req.request.method).toEqual('GET');
     req.flush(dummyStorageInfos);
   });
