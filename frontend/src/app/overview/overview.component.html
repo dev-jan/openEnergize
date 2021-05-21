@@ -1,7 +1,7 @@
 <div class="container md-padding">
   <h1 class="mat-display-1">Overview</h1>
 
-  <h2>Total</h2>
+  <h2>{{ 'totals.title' | translate }}</h2>
   <mat-card *ngIf="totalRequestError" class="error--card">
     <mat-card-content>
       Error while connecting to backend! Error message: {{ totalRequestError }}
