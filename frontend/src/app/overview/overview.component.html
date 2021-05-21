@@ -1,10 +1,10 @@
 <div class="container md-padding">
-  <h1 class="mat-display-1">Overview</h1>
+  <h1 class="mat-display-1">{{ 'overview.title' | translate }}</h1>
 
   <h2>{{ 'totals.title' | translate }}</h2>
   <mat-card *ngIf="totalRequestError" class="error--card">
     <mat-card-content>
-      Error while connecting to backend! Error message: {{ totalRequestError }}
+      {{ 'error.general' | translate }}: {{ totalRequestError }}
     </mat-card-content>
   </mat-card>
   <mat-card *ngIf="totals" class="totals--card">
@@ -13,7 +13,7 @@
     </mat-card-content>
   </mat-card>
 
-  <h2>Producers and Storages</h2>
+  <h2>{{ 'producersAndStorages.title' | translate }}</h2>
   <div class="device--container">
     <div *ngFor='let producer of producers' class="device--tile">
       <app-producer-detail [producer]="producer"></app-producer-detail>
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <h2>Consumers</h2>
+  <h2>{{ 'consumers.title' | translate }}</h2>
   <div class="device--container">
     <div *ngFor='let consumer of consumers' class="device--tile">
       <app-consumer-detail [consumer]="consumer"></app-consumer-detail>

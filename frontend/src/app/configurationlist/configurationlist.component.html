@@ -3,7 +3,7 @@
 
   <mat-card *ngIf="errorMessage" class="error--card">
     <mat-card-content>
-      Error while connecting to backend! Error message: {{ errorMessage }}
+      {{ 'error.general' | translate }} {{ errorMessage }}
     </mat-card-content>
   </mat-card>
 
@@ -18,12 +18,12 @@
     </div>
   </div>
 
-  <div><strong>API URL: </strong></div>
+  <div><strong>{{ 'settings.apiurl' | translate }}: </strong></div>
   <div class="section">
     <a href="{{ environmentConfig.apiUrl }}" target="_blank">{{ environmentConfig.apiUrl }}</a>
   </div>
 
-  <div><strong>Backend Configuration:</strong></div>
+  <div><strong>{{ 'settings.backendconfig' | translate }}:</strong></div>
   <div class="section">
     <pre *ngIf="configuration">{{ configuration.raw }}</pre>
   </div>

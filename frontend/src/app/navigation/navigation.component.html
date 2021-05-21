@@ -1,22 +1,22 @@
 <mat-nav-list>
-  <h2 matSubheader>Navigation</h2>
+  <h2 matSubheader>{{ 'navigation.title' | translate }}</h2>
 
   <a mat-list-item routerLink="/overview" (click)="onSidenavClose()">
-    <mat-icon>home</mat-icon> <span class="nav-caption">Overview</span>
+    <mat-icon>home</mat-icon> <span class="nav-caption">{{ 'overview.title' | translate }}</span>
   </a>
 
   <a mat-list-item routerLink="/eventlist" (click)="onSidenavClose()">
-    <mat-icon>description</mat-icon> <span class="nav-caption">Events</span>
+    <mat-icon>description</mat-icon> <span class="nav-caption">{{ 'events.title' | translate }}</span>
   </a>
 
   <a mat-list-item routerLink="/configurations" (click)="onSidenavClose()">
-    <mat-icon>settings</mat-icon> <span class="nav-caption">Configurations</span>
+    <mat-icon>settings</mat-icon> <span class="nav-caption">{{ 'settings.title' | translate }}</span>
   </a>
 
   <mat-divider></mat-divider>
 
   <a mat-list-item routerLink="/about" (click)="onSidenavClose()">
-    <span class="nav-caption">About</span>
+    <span class="nav-caption">{{ 'about.title' | translate }}</span>
   </a>
 
 </mat-nav-list>
