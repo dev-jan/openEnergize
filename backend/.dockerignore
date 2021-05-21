@@ -4,4 +4,6 @@ __pycache__
 *.pyd
 .Python
 env
+venv
+htmlcov
 .git
