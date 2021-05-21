@@ -10,13 +10,13 @@ def test_consumers_getall():
     with app.test_client() as test_client:
         response = test_client.get('/api/consumers/')
         assert response.status_code == 200
-        assert response.json[0]['name'] == 'Fake Device 1'
+        assert response.json[0]['name'] == 'Washing Machine'
         assert response.json[0]['id'] == 0
         assert response.json[0]['type'] == 'fakeControllable'
         assert response.json[0]['currentConsumptionInWatt'] == 111.0
         assert response.json[0]['isControllable']
         assert response.json[0]['status'] == 'READY'
-        assert response.json[1]['name'] == 'Tesla'
+        assert response.json[1]['name'] == 'Car'
 
 
 def test_consumers_getById():
