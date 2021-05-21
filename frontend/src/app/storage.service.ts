@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 })
 export class StorageService {
 
-  storageUrl = '/storages';
+  storageUrl = '/storages/';
 
   storages: Storage[] = [];
 
