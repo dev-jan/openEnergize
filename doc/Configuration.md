@@ -54,6 +54,7 @@ List of the energy producers. Every producer can have the following attributes:
 * type: Type of the producer. The following types are available:
   * 'constant': Return a constant value
   * 'modbus': Return a value for a Modbus Device
+* image: URL of an image to display in the frontend (optional)
 * config: Configuration of the producer. For the possible configuration values for each
   producer, see the documentation of the different producers.
 
@@ -71,6 +72,7 @@ List of the consumer devices. Every consumer has the following attributes:
   * 'vzugHome': Controls a V-ZUG Device (that is equipped with V-ZUG Home)
   * 'influxDb': Get the current energy production from an Influx DB
   * 'sgReady': Controls a SG-Ready Device (Smart Grid Ready heat pumps)
+* image: URL of an image to display in the frontend (optional)
 * config: Configuration of the consumer. For the possible configuration values for each
   consumer, see the documentation of the different consumers.
 
@@ -84,5 +86,6 @@ List of the energy storages. Every storage has the following attributes:
 * type: Type of the storage. The following types are available:
   * 'constant': Return a constant value for the battery percentage
   * 'vartaBattery': Return the battery percentage from a VARTA battery
+* image: URL of an image to display in the frontend (optional)
 * config: Configuration of the storage. For the possible configuration values for each
   storage type, see the documentation of the different storage adapters.

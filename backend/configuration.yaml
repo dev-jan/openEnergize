@@ -16,51 +16,55 @@ producers:
 
 consumers:
     - id: 0
-      name: 'Fake Device 1'
+      name: 'Washing Machine'
       type: 'fakeControllable'
+      image: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FzaGluZyUyMG1hY2hpbmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=60'
       config:
           value: '111'
           status: 'READY'
           activation_threshold: 20
     - id: 1
-      name: 'Tesla'
+      name: 'Car'
       type: 'constant'
+      image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=80'
       config:
           value: '1433.16'
     - id: 2
       name: 'Outdoor Light'
       type: 'constant'
+      image: 'https://images.unsplash.com/photo-1536486239970-277f67f55a11?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=80'
       config:
           value: '0.0'
     - id: 3
       name: 'Phone'
       type: 'constant'
+      image: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=80'
       config:
           value: '0.0'
     - id: 4
-      name: 'Some other fake Device'
+      name: 'Electric Socket Kitchen'
       type: 'constant'
       config:
           value: '0.0'
     - id: 5
-      name: 'Some other fake Device'
+      name: 'Electric Socket Garden'
       type: 'constant'
       config:
           value: '0.0'
     - id: 6
-      name: 'Some other fake Device'
+      name: 'Electric Socket Basement'
       type: 'constant'
       config:
           value: '0.0'
 
 storages:
     - id: 0
-      name: "My fake battery"
+      name: "Basement Battery"
       type: 'constant'
       config:
           value: '98'
     - id: 1
-      name: "Simulated VARTA battery"
+      name: "Roof Battery"
       type: 'constant'
       config:
           value: '13'

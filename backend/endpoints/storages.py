@@ -6,6 +6,7 @@ api = Namespace('storages', description='Energy storages')
 storage = api.model('Storage', {
     'id': fields.Integer(required=True, description='ID of the storage'),
     'name': fields.String(required=True, description='Name of the storage'),
+    'image': fields.String(required=False, description='URL of the image for the storage'),
     'type': fields.String(
         required=True,
         description='Type of the storage'
