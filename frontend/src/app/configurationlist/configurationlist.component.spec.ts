@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ConfigurationService } from '../configuration.service';
 
 import { ConfigurationlistComponent } from './configurationlist.component';
@@ -11,8 +12,8 @@ describe('ConfigurationlistComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ConfigurationlistComponent ],
-      imports: [ HttpClientModule ],
-      providers: [ ConfigurationService ]
+      imports: [ HttpClientModule, TranslateModule.forRoot() ],
+      providers: [ ConfigurationService, TranslateService ]
     })
     .compileComponents();
   });

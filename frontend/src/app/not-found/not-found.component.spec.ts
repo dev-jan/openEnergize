@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { NotFoundComponent } from './not-found.component';
 
@@ -8,6 +9,7 @@ describe('NotFoundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ TranslateModule.forRoot() ],
       declarations: [ NotFoundComponent ]
     })
     .compileComponents();

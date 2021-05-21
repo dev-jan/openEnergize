@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { EventlistComponent } from './eventlist.component';
 
@@ -10,7 +11,7 @@ describe('EventlistComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ EventlistComponent ],
-      imports: [ HttpClientModule ]
+      imports: [ HttpClientModule, TranslateModule.forRoot() ]
     })
     .compileComponents();
   });

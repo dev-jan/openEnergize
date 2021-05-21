@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { NavigationComponent } from './navigation.component';
 
@@ -8,6 +10,7 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ TranslateModule.forRoot() ],
       declarations: [ NavigationComponent ]
     })
     .compileComponents();

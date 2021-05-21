@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { OverviewComponent } from './overview.component';
 
@@ -10,7 +11,7 @@ describe('OverviewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ OverviewComponent ],
-      imports: [ HttpClientModule ]
+      imports: [ HttpClientModule, TranslateModule.forRoot() ]
     })
     .compileComponents();
   });
