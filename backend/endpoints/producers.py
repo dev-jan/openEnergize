@@ -4,9 +4,18 @@ from ..Configuration import get_configuration
 api = Namespace('producers', description='Energy producers')
 
 producer = api.model('Producer', {
-    'id': fields.Integer(required=True, description='ID of the producer'),
-    'name': fields.String(required=True, description='Name of the producer'),
-    'image': fields.String(required=False, description='URL of the image for the producer'),
+    'id': fields.Integer(
+        required=True,
+        description='ID of the producer'
+    ),
+    'name': fields.String(
+        required=True,
+        description='Name of the producer'
+    ),
+    'image': fields.String(
+        required=False,
+        description='URL of the image for the producer'
+    ),
     'type': fields.String(
         required=True,
         description='Type of the producter'

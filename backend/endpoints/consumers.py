@@ -4,9 +4,18 @@ from ..Configuration import get_configuration
 api = Namespace('consumers', description='Energy consumers')
 
 consumer = api.model('Consumer', {
-    'id': fields.Integer(required=True, description='ID of the consumer'),
-    'name': fields.String(required=True, description='Name of the consumer'),
-    'image': fields.String(required=False, description='URL of the image for the consumer'),
+    'id': fields.Integer(
+        required=True,
+        description='ID of the consumer'
+    ),
+    'name': fields.String(
+        required=True,
+        description='Name of the consumer'
+    ),
+    'image': fields.String(
+        required=False,
+        description='URL of the image for the consumer'
+    ),
     'type': fields.String(
         required=True,
         description='Type of the consumer'
