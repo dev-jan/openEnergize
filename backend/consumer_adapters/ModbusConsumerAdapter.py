@@ -53,7 +53,7 @@ class ModbusConsumerAdapter(AbstractConsumerAdapter):
                 real_value = raw_value * factor
                 return real_value
             else:
-                self.logger.warn('Cannot read values from modbus, retry...')
+                self.logger.debug('Cannot read values from modbus, retry...')
         self.logger.error(
             'All retries failed to read values for consumer %s' %
             str(self.config)
